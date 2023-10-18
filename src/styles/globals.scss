@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+@import "./mixins.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: $textPrimary;
+  font-size: 1rem;
+}
+
+body {
+  background-color: $bgDark;
+}
+
+h1 {
+  @include titleStyle();
+}
+
+h2 {
+  @include titleStyle(600, 1.25rem);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  @include titleStyle(400, 1.125rem);
+}

@@ -2,7 +2,7 @@
 
 @import "../../styles/mixins.scss";
 
-.wrapper {
+.title {
   &Span {
     @include titleStyle;
     color: $secondaryGreen;

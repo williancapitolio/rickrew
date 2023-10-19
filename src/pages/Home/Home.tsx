@@ -15,14 +15,15 @@ export const Home = () => {
   const [loading, setLoadind] = useState(false);
   const [scrollLoadind, setScrollLoadind] = useState(false);
   const [page, setPage] = useState(2);
-  const [isEndOfPage, setisEndOfPage] = useState(false);
+  const [endPage, setEndPage] = useState(false)
 
   const loadedData = useLoaderData() as ResponseCharactersType;
 
   function getEndOfPage() {
     const scrollPosition = window.scrollY + window.innerHeight;
     const documentHeight = document.documentElement.offsetHeight;
-    scrollPosition >= documentHeight - 1000 && setisEndOfPage(true);
+    scrollPosition >= documentHeight - 1000 && setEndPage(true)
+    return scrollPosition >= documentHeight - 1000;
   }
 
   const fetchNextCharacters = async () => {
@@ -37,21 +38,28 @@ export const Home = () => {
     setScrollLoadind(false);
   };
 
+  const handleInfiniteScroll = () => {
+    if (getEndOfPage()) {
+      fetchNextCharacters();
+      setEndPage(false)
+    }
+  };
+
   useEffect(() => {
     setLoadind(true);
     setData(loadedData.results);
     setLoadind(false);
   }, [loadedData]);
 
-  window.addEventListener("scroll", () => {
-    getEndOfPage();
-    if (isEndOfPage) {
-      setTimeout(() => {
-        fetchNextCharacters();
-        setisEndOfPage(false);
-      }, 1000 * 2);
+  useEffect(() => {
+    if (endPage) {
+      window.addEventListener("scroll", handleInfiniteScroll);
+    } else {
+      window.removeEventListener("scroll", handleInfiniteScroll);
     }
-  });
+  }, [endPage]);
+
+  
 
   return (
     <>

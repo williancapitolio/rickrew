@@ -1,9 +1,7 @@
-import { Title } from "./components/Title";
+import { RouterProvider } from "react-router-dom";
+
+import { router } from "./router";
 
 export const App = () => {
-  return (
-    <>
-      <Title />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };

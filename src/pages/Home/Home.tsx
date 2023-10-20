@@ -15,35 +15,13 @@ export const Home = () => {
   const [loading, setLoadind] = useState(false);
   const [scrollLoadind, setScrollLoadind] = useState(false);
   const [page, setPage] = useState(2);
-  const [endPage, setEndPage] = useState(false)
+  const [endDataPage, setEndDataPage] = useState(false);
+
+  const [offset, setOffset] = useState(0);
+  const [documentHeight, setDocumentHeight] = useState(0);
+  const [displayMore, setDisplayMore] = useState(false);
 
   const loadedData = useLoaderData() as ResponseCharactersType;
-
-  function getEndOfPage() {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const documentHeight = document.documentElement.offsetHeight;
-    scrollPosition >= documentHeight - 1000 && setEndPage(true)
-    return scrollPosition >= documentHeight - 1000;
-  }
-
-  const fetchNextCharacters = async () => {
-    if (page > loadedData.info.pages) return;
-    setScrollLoadind(true);
-
-    setPage(page + 1);
-
-    const nextCharacters = await getAllCharacters(page);
-
-    setData([...data, ...nextCharacters.results]);
-    setScrollLoadind(false);
-  };
-
-  const handleInfiniteScroll = () => {
-    if (getEndOfPage()) {
-      fetchNextCharacters();
-      setEndPage(false)
-    }
-  };
 
   useEffect(() => {
     setLoadind(true);
@@ -52,14 +30,44 @@ export const Home = () => {
   }, [loadedData]);
 
   useEffect(() => {
-    if (endPage) {
-      window.addEventListener("scroll", handleInfiniteScroll);
-    } else {
-      window.removeEventListener("scroll", handleInfiniteScroll);
-    }
-  }, [endPage]);
+    if (!endDataPage && !displayMore) {
+      const onScroll = () => {
+        setOffset(window.scrollY + window.innerHeight);
+        setDocumentHeight(document.documentElement.offsetHeight);
 
-  
+        if (offset > documentHeight - 1000 && offset && documentHeight) {
+          setOffset(0);
+          setDocumentHeight(document.documentElement.offsetHeight);
+          setDisplayMore(true);
+        }
+      };
+
+      window.removeEventListener("scroll", onScroll);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+  }, [endDataPage, offset, documentHeight, displayMore]);
+
+  useEffect(() => {
+    if (displayMore) {
+      setScrollLoadind(true);
+
+      const fetchNextCharacters = async (page: number) => {
+        if (page < loadedData.info.pages + 1) {
+          const nextCharacters = await getAllCharacters(page);
+
+          setData([...data, ...nextCharacters.results]);
+        } else {
+          setEndDataPage(true);
+        }
+      };
+
+      setPage(page + 1);
+      fetchNextCharacters(page);
+      setDisplayMore(false);
+      setScrollLoadind(false);
+    }
+  }, [displayMore, page, data, loadedData.info.pages]);
 
   return (
     <>
@@ -70,6 +78,7 @@ export const Home = () => {
         ))}
       </section>
       {scrollLoadind && <h2>Carregando...</h2>}
+      {endDataPage && <h2>Fim dos resultados</h2>}
     </>
   );
 };

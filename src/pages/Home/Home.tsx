@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 
 import { useLoaderData } from "react-router-dom";
 
+import { getAllCharacters } from "../../services/Api";
+
 import { CharacterCard } from "../../components/CharacterCard/CharacterCard";
+
+import styles from "./Home.module.scss";
 
 import {
   CharacterType,
   ResponseCharactersType,
 } from "../../types/CharactersType";
-import { getAllCharacters } from "../../services/Api";
 
 export const Home = () => {
   const [data, setData] = useState<[] | CharacterType[]>([]);
@@ -71,7 +74,7 @@ export const Home = () => {
 
   return (
     <>
-      <section>
+      <section className={styles.home}>
         {loading && <h2>Carregando...</h2>}
         {data.map((character) => (
           <CharacterCard characterData={character} key={character.id} />

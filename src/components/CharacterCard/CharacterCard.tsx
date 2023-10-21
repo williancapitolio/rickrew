@@ -1,3 +1,5 @@
+import styles from "./CharacterCard.module.scss";
+
 import { CharacterType } from "../../types/CharactersType";
 
 type CharacterCardProps = {
@@ -6,14 +8,13 @@ type CharacterCardProps = {
 
 export const CharacterCard = ({ characterData }: CharacterCardProps) => {
   return (
-    <section>
-      <section>
-        <img
-          src={characterData.image}
-          alt={"Imagem de " + characterData.name}
-        />
-      </section>
-      <h3>{characterData.name}</h3>
+    <section className={styles.card}>
+      <img
+        className={styles.cardImg}
+        src={characterData.image}
+        alt={"Imagem de " + characterData.name}
+      />
+      <span className={styles.cardTitle}>{characterData.name}</span>
     </section>
   );
 };

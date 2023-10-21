@@ -1,0 +1,33 @@
+@import "../../styles/variables.scss";
+
+.card {
+  width: 8rem;
+  height: 8rem;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: $boxShadown;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &Img {
+    width: 100%;
+    border: 0.2rem solid $primaryGreen;
+    border-radius: 1rem;
+  }
+
+  &Title {
+    padding: 0.25rem;
+    font-size: 0.625rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: $bgDarkSecondary;
+    border: 0.2rem solid $bgDarkSecondary;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    text-align: center;
+  }
+}

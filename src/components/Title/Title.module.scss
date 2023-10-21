@@ -5,6 +5,6 @@
 .title {
   &Span {
     @include titleStyle;
-    color: $secondaryGreen;
+    color: $primaryGreen;
   }
 }

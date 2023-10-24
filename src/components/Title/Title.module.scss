@@ -3,6 +3,7 @@
 @import "../../styles/mixins.scss";
 
 .title {
+
   &Span {
     @include titleStyle;
     color: $primaryGreen;

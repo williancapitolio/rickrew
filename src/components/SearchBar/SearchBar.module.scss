@@ -1,0 +1,17 @@
+@import "../../styles/variables.scss";
+
+.searchBar {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: $textPrimary;
+  border: 0.15rem solid transparent;
+  background-color: $bgDarkTertiary;
+  font-size: 0.75rem;
+  height: 2rem;
+
+  &:focus {
+    outline: none;
+    border: 0.15rem solid $primaryGreen;
+  }
+}

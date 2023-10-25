@@ -3,6 +3,7 @@
 @import "../../styles/mixins.scss";
 
 .title {
+  cursor: pointer;
 
   &Span {
     @include titleStyle;

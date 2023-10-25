@@ -20,6 +20,20 @@ export const useInfiniteScroll = () => {
   const [documentHeight, setDocumentHeight] = useState(0);
   const [displayMore, setDisplayMore] = useState(false);
 
+  const [scrollExists, setScrollExists] = useState(true);
+
+  const verifyIfScrollExists = () => {
+    const winHeight = window.innerHeight;
+    const bodyHeight = document.querySelector("body")?.offsetHeight.toFixed();
+    if (bodyHeight) {
+      if (winHeight > +bodyHeight) setScrollExists(false);
+    }
+  };
+
+  useEffect(() => {
+    !loading && verifyIfScrollExists();
+  }, [loading]);
+
   useEffect(() => {
     setLoadind(true);
     setData(loadedData.results);
@@ -46,7 +60,7 @@ export const useInfiniteScroll = () => {
   }, [endDataPage, offset, documentHeight, displayMore]);
 
   useEffect(() => {
-    if (displayMore) {
+    if (displayMore || !scrollExists) {
       setScrollLoadind(true);
 
       const fetchNextCharacters = async (page: number) => {
@@ -63,8 +77,9 @@ export const useInfiniteScroll = () => {
       fetchNextCharacters(page);
       setDisplayMore(false);
       setScrollLoadind(false);
+      setScrollExists(true);
     }
-  }, [displayMore, page, data, loadedData.info.pages]);
+  }, [displayMore, page, data, loadedData.info.pages, scrollExists]);
 
   return { loading, data, scrollLoadind, endDataPage };
 };

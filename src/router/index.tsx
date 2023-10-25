@@ -6,6 +6,7 @@ import { Character } from "../pages/Character";
 import { Favorites } from "../pages/Favorites";
 
 import { charactersLoader } from "../loaders/charactersLoader";
+import { characterLoader } from "../loaders/characterLoader";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
       {
         path: "character/:id",
         element: <Character />,
-        /* loader: */
+        loader: characterLoader,
       },
       {
         path: "favorites/:ids",

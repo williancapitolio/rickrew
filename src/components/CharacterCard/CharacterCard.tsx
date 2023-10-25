@@ -1,6 +1,7 @@
 import styles from "./CharacterCard.module.scss";
 
 import { CharacterType } from "../../types/CharactersType";
+import { Link } from "react-router-dom";
 
 type CharacterCardProps = {
   characterData: CharacterType;
@@ -8,13 +9,13 @@ type CharacterCardProps = {
 
 export const CharacterCard = ({ characterData }: CharacterCardProps) => {
   return (
-    <section className={styles.card}>
+    <Link to={"/character/" + characterData.id} className={styles.card}>
       <img
         className={styles.cardImg}
         src={characterData.image}
         alt={"Imagem de " + characterData.name}
       />
       <span className={styles.cardTitle}>{characterData.name}</span>
-    </section>
+    </Link>
   );
 };

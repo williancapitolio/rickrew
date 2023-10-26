@@ -25,7 +25,7 @@
     &Img {
       border-radius: 1rem;
       max-width: 85%;
-      box-shadow: $boxShadown;
+      box-shadow: $boxShadow;
     }
 
     &Data {
@@ -53,7 +53,7 @@
     &About {
       border-radius: 0.75rem;
       background-color: $bgDarkTertiary;
-      box-shadow: $boxShadown;
+      box-shadow: $boxShadow;
       padding: 2rem 1rem;
       display: flex;
       flex-direction: column;

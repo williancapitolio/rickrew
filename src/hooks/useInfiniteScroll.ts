@@ -46,7 +46,7 @@ export const useInfiniteScroll = () => {
         setOffset(window.scrollY + window.innerHeight);
         setDocumentHeight(document.documentElement.offsetHeight);
 
-        if (offset > documentHeight - 1000 && offset && documentHeight) {
+        if (offset > documentHeight - 250 && offset && documentHeight) {
           setOffset(0);
           setDocumentHeight(document.documentElement.offsetHeight);
           setDisplayMore(true);

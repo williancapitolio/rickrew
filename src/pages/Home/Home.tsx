@@ -1,5 +1,8 @@
 import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
 
+import { Header } from "../../components/Header";
+import { Subtitle } from "../../components/Subtitle";
+import { Loader } from "../../components/Loader";
 import { CharacterCard } from "../../components/CharacterCard";
 
 import styles from "./Home.module.scss";
@@ -9,13 +12,15 @@ export const Home = () => {
 
   return (
     <>
+      <Header />
+      <Subtitle />
+      {loading && <Loader />}
       <section className={styles.home}>
-        {loading && <h2>Carregando...</h2>}
         {data.map((character) => (
           <CharacterCard characterData={character} key={character.id} />
         ))}
       </section>
-      {scrollLoadind && <h2>Carregando...</h2>}
+      {scrollLoadind && <Loader />}
       {endDataPage && <h2>Fim dos resultados</h2>}
     </>
   );

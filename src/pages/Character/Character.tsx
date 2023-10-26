@@ -30,8 +30,28 @@ export const Character = () => {
       </section>
 
       <section className={styles.characterBody}>
-        <section className={styles.characterBodyAbout}></section>
-        <section className={styles.characterBodyLocation}></section>
+        <section className={styles.characterBodyAbout}>
+          <h4>Sobre</h4>
+          <p>
+            Status: <span>{loadedData.status}</span>
+          </p>
+          <p>
+            Espécie: <span>{loadedData.species}</span>
+          </p>
+          <p>
+            Gênero: <span>{loadedData.gender}</span>
+          </p>
+        </section>
+
+        <section className={styles.characterBodyAbout}>
+          <h4>Lugares</h4>
+          <p>
+            Origem: <span>{loadedData.origin.name}</span>
+          </p>
+          <p>
+            Localização: <span>{loadedData.location.name}</span>
+          </p>
+        </section>
       </section>
     </article>
   );

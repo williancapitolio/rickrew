@@ -5,7 +5,7 @@ import styles from "./Favorites.module.scss";
 export const Favorites = () => {
   return (
     <div className={styles.favorites}>
-      <BiSolidStar />
+      <BiSolidStar className={styles.favoritesSvg}/>
     </div>
   );
 };

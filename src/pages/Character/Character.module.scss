@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+@import "../../styles/mixins.scss";
+
+.character {
+  width: 100%;
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 1rem;
+
+  &Head {
+    width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    &Img {
+      border-radius: 1rem;
+      max-width: 85%;
+    }
+
+    &Data {
+      width: 15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      &Icon {
+        @include favoriteIconStyle();
+      }
+    }
+  }
+}

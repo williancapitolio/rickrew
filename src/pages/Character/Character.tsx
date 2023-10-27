@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 
-import { BiStar /* , BiSolidStar */ } from "react-icons/bi";
+import { BiStar, BiSolidStar } from "react-icons/bi";
 
-import { BackHome } from "../../components/BackHome/BackHome";
+import { useManageFavoritesCharacters } from "../../hooks/useManageFavoritesCharacters";
+
+import { BackHome } from "../../components/BackHome";
 
 import styles from "./Character.module.scss";
 
@@ -10,6 +12,9 @@ import { CharacterType } from "../../types/CharactersType";
 
 export const Character = () => {
   const loadedData = useLoaderData() as CharacterType;
+
+  const { verifyIfIsFavorite, addFavorite, deleteFavorite } =
+    useManageFavoritesCharacters();
 
   return (
     <article className={styles.character}>
@@ -24,7 +29,17 @@ export const Character = () => {
         <div className={styles.characterHeadData}>
           <h2>{loadedData.name}</h2>
           <span className={styles.characterHeadDataIcon}>
-            <BiStar className={styles.characterHeadDataIconSvg} />
+            {verifyIfIsFavorite(loadedData.id) ? (
+              <BiSolidStar
+                className={styles.characterHeadDataIconSvg}
+                onClick={() => deleteFavorite(loadedData.id)}
+              />
+            ) : (
+              <BiStar
+                className={styles.characterHeadDataIconSvg}
+                onClick={() => addFavorite(loadedData.id)}
+              />
+            )}
           </span>
         </div>
       </section>

@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 @mixin titleStyle($fontWeight: 800, $fontSize: 1.5rem) {
   font-weight: $fontWeight;
   font-size: $fontSize;
@@ -16,5 +18,9 @@
 
   &Svg {
     font-size: 1.5rem;
+  }
+
+  &:hover {
+    background-color: $bgDarkTertiary;
   }
 }

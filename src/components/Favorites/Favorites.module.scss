@@ -1,11 +1,5 @@
-@import "../../styles/variables.scss";
-
 @import "../../styles/mixins.scss";
 
 .favorites {
   @include favoriteIconStyle();
-
-  &:hover {
-    background-color: $bgDarkTertiary;
-  }
 }

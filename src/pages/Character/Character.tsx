@@ -28,19 +28,21 @@ export const Character = () => {
         />
         <div className={styles.characterHeadData}>
           <h2>{loadedData.name}</h2>
-          <span className={styles.characterHeadDataIcon}>
-            {verifyIfIsFavorite(loadedData.id) ? (
-              <BiSolidStar
-                className={styles.characterHeadDataIconSvg}
-                onClick={() => deleteFavorite(loadedData.id)}
-              />
-            ) : (
-              <BiStar
-                className={styles.characterHeadDataIconSvg}
-                onClick={() => addFavorite(loadedData.id)}
-              />
-            )}
-          </span>
+          {verifyIfIsFavorite(loadedData.id) ? (
+            <span
+              className={styles.characterHeadDataIcon}
+              onClick={() => deleteFavorite(loadedData.id)}
+            >
+              <BiSolidStar className={styles.characterHeadDataIconSvg} />
+            </span>
+          ) : (
+            <span
+              className={styles.characterHeadDataIcon}
+              onClick={() => addFavorite(loadedData.id)}
+            >
+              <BiStar className={styles.characterHeadDataIconSvg} />
+            </span>
+          )}
         </div>
       </section>
 

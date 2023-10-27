@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 export const useManageFavoritesCharacters = () => {
-  /* const [isFavorite, setIsFavorite] = useState(false); */
-
   const [favoritesCharacters, setFavoritesCharacters] = useState<[] | number[]>(
     () => {
       const favoritesCharactersLocalStorage = localStorage.getItem(
@@ -28,7 +26,6 @@ export const useManageFavoritesCharacters = () => {
       localStorage.setItem("favorites-characters", JSON.stringify(newState));
       return newState;
     });
-    /* setIsFavorite(!isFavorite); */
   };
 
   const deleteFavorite = (id: number) => {
@@ -37,11 +34,9 @@ export const useManageFavoritesCharacters = () => {
       localStorage.setItem("favorites-characters", JSON.stringify(newState));
       return newState;
     });
-    /* setIsFavorite(!isFavorite); */
   };
 
   return {
-    /* isFavorite, */
     favoritesCharacters,
     verifyIfIsFavorite,
     addFavorite,

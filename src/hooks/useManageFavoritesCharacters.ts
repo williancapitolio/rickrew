@@ -1,21 +1,17 @@
 import { useState } from "react";
 
+import { getLocalStorageData } from "../services/LocalStorage";
+
 export const useManageFavoritesCharacters = () => {
   const [favoritesCharacters, setFavoritesCharacters] = useState<[] | number[]>(
-    () => {
-      const favoritesCharactersLocalStorage = localStorage.getItem(
-        "favorites-characters"
-      );
-      if (!favoritesCharactersLocalStorage) return [];
-      return JSON.parse(favoritesCharactersLocalStorage);
-    }
+    () => getLocalStorageData()
   );
 
   const verifyIfIsFavorite = (id: number): boolean => {
     const isFavorite = favoritesCharacters.find(
       (idCharacter) => idCharacter === id
     );
-    
+
     if (isFavorite) return true;
     else return false;
   };

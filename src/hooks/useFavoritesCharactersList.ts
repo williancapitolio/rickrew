@@ -16,5 +16,5 @@ export const useFavoritesCharactersList = () => {
     setLoading(false);
   }, [loadedData]);
 
-  return {data, loading}
+  return { data, loading };
 };

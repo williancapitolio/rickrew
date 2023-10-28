@@ -1,5 +1,9 @@
 import styles from "./Subtitle.module.scss";
 
-export const Subtitle = () => {
-  return <h3 className={styles.subtitle}>Personagens</h3>;
+type SubtitleProps = {
+  text: string;
+};
+
+export const Subtitle = ({ text }: SubtitleProps) => {
+  return <h3 className={styles.subtitle}>{text}</h3>;
 };

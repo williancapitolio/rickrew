@@ -13,7 +13,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <Subtitle />
+      <Subtitle text="Personagens" />
       {loading && <Loader />}
       <section className={styles.home}>
         {data.map((character) => (

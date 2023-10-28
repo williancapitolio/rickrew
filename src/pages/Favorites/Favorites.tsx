@@ -1,21 +1,31 @@
-import { useLoaderData } from "react-router-dom";
+import { useFavoritesCharactersList } from "../../hooks/useFavoritesCharactersList";
 
 import { BackHome } from "../../components/BackHome";
 import { Subtitle } from "../../components/Subtitle";
+import { Loader } from "../../components/Loader";
+import { CharacterCard } from "../../components/CharacterCard";
 
 import styles from "./Favorites.module.scss";
 
-import { CharacterType } from "../../types/CharactersType";
-
 export const Favorites = () => {
-  const loadedData = useLoaderData() as CharacterType[];
-  console.log(loadedData);
-  return (
-    <section className={styles.favorites}>
-      <BackHome />
-      <Subtitle />
+  const { loading, data } = useFavoritesCharactersList();
 
-      <div></div>
-    </section>
+  return (
+    <>
+      <BackHome />
+
+      <section className={styles.favorites}>
+        <Subtitle text="Favoritos" />
+
+        {loading && data.length > 0 && <Loader />}
+
+        <section className={styles.favoritesList}>
+          {data.length > 0 &&
+            data.map((character) => (
+              <CharacterCard characterData={character} key={character.id} />
+            ))}
+        </section>
+      </section>
+    </>
   );
 };

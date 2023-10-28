@@ -1,12 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import { Layout } from "../pages/Layout";
-import { Home } from "../pages/Home";
-import { Character } from "../pages/Character";
-import { Favorites } from "../pages/Favorites";
 
+import { Home } from "../pages/Home";
 import { charactersLoader } from "../loaders/charactersLoader";
+
+import { Character } from "../pages/Character";
 import { characterLoader } from "../loaders/characterLoader";
+
+import { Favorites } from "../pages/Favorites";
+import { favoritesLoader } from "../loaders/favoritesLoader";
 
 export const router = createBrowserRouter([
   {
@@ -26,9 +29,9 @@ export const router = createBrowserRouter([
         loader: characterLoader,
       },
       {
-        path: "favorites/:ids",
+        path: "favorites",
         element: <Favorites />,
-        /* loader: */
+        loader: favoritesLoader,
       },
     ],
   },

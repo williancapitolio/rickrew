@@ -9,6 +9,7 @@ import styles from "./Favorites.module.scss";
 
 export const Favorites = () => {
   const { loading, data } = useFavoritesCharactersList();
+  console.log(typeof data, data)
 
   return (
     <>
@@ -17,9 +18,11 @@ export const Favorites = () => {
       <section className={styles.favorites}>
         <Subtitle text="Favoritos" />
 
-        {loading && data.length > 0 && <Loader />}
+        {loading && <Loader />}
 
         <section className={styles.favoritesList}>
+          {data.length === undefined && <CharacterCard characterData={data} key={data.id} />}
+          
           {data.length > 0 &&
             data.map((character) => (
               <CharacterCard characterData={character} key={character.id} />

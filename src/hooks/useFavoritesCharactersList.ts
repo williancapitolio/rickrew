@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import { CharacterType } from "../types/CharactersType";
 
 export const useFavoritesCharactersList = () => {
-  const [data, setData] = useState<[] | CharacterType[]>([]);
+  const [data, setData] = useState<CharacterType[] | CharacterType>([]);
   const [loading, setLoading] = useState(false);
 
   const loadedData = useLoaderData() as CharacterType[];

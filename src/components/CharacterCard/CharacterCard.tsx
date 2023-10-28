@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
+
 import styles from "./CharacterCard.module.scss";
 
 import { CharacterType } from "../../types/CharactersType";
-import { Link } from "react-router-dom";
 
 type CharacterCardProps = {
   characterData: CharacterType;

@@ -20,7 +20,7 @@ export interface CharacterType {
   image: string;
 }
 
-export type ResponseCharactersType = {
+export interface ResponseCharactersType {
   info: InfoType;
   results: CharacterType[];
-};
+}

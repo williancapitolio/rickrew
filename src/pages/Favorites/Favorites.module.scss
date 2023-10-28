@@ -1,9 +1,9 @@
 .favorites {
   margin-top: 3.75rem;
   width: 100%;
+  max-width: 64rem;
 
   &List {
-    max-width: 64rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

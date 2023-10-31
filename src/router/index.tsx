@@ -32,6 +32,7 @@ export const router = createBrowserRouter([
         path: "favorites",
         element: <Favorites />,
         loader: favoritesLoader,
+        errorElement: <h1>deu ruim</h1>,
       },
     ],
   },

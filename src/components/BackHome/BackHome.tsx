@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./BackHome.module.scss";
 
 export const BackHome = () => {
+  const navigate = useNavigate();
+
   return (
-    <NavLink to={"/"} className={styles.backHome}>
+    <a onClick={() => navigate(-1)} className={styles.backHome}>
       <span className={styles.backHomeArrow}>&lt;</span> Voltar
-    </NavLink>
+    </a>
   );
 };

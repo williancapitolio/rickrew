@@ -11,15 +11,15 @@ export const Favorites = () => {
   const { loading, data } = useFavoritesCharactersList();
 
   return (
-    <>
+    <section className={styles.favorites}>
       <BackHome />
 
-      <section className={styles.favorites}>
+      <section className={styles.favoritesContent}>
         <Subtitle text="Favoritos" />
 
         {loading && <Loader />}
 
-        <section className={styles.favoritesList}>
+        <section className={styles.favoritesContentList}>
           {Array.isArray(data) ? (
             data.length > 0 &&
             data.map((character) => (
@@ -30,6 +30,6 @@ export const Favorites = () => {
           )}
         </section>
       </section>
-    </>
+    </section>
   );
 };

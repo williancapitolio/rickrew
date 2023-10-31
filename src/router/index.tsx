@@ -10,6 +10,7 @@ import { characterLoader } from "../loaders/characterLoader";
 
 import { Favorites } from "../pages/Favorites";
 import { favoritesLoader } from "../loaders/favoritesLoader";
+import { FavoritesError } from "../errors/FavoritesError";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
         path: "favorites",
         element: <Favorites />,
         loader: favoritesLoader,
-        errorElement: <h1>deu ruim</h1>,
+        errorElement: <FavoritesError  />,
       },
     ],
   },

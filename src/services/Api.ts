@@ -42,3 +42,18 @@ export const getFavoritesCharacters = async (): Promise<CharacterType[]> => {
 
   return data;
 };
+
+export const getFilteredByNameCharacters = async (
+  name: string
+): Promise<ResponseCharactersType> => {
+  const response = await fetch(baseURL + "?name=" + name);
+
+  if (response.status !== 404 && response.status !== 200)
+    throw new Error("Algo deu errado na requisição!");
+
+  if (response.status === 404) throw new Error("Nenhum personagem encontrado!");
+
+  const data: ResponseCharactersType = await response.json();
+
+  return data;
+};

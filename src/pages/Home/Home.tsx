@@ -6,19 +6,29 @@ import { Loader } from "../../components/Loader";
 import { CharacterCard } from "../../components/CharacterCard";
 
 import styles from "./Home.module.scss";
+import { useFilterCharactersByName } from "../../hooks/useFilterCharactersByName";
 
 export const Home = () => {
   const { loading, data, scrollLoadind, endDataPage } = useInfiniteScroll();
 
+  const { searchLoading, searchedData, handleSearcBarText } =
+    useFilterCharactersByName();
+
+    console.log(searchedData)
+
   return (
     <>
-      <Header />
+      <Header handleSearcBarText={handleSearcBarText} />
       <Subtitle text="Personagens" />
-      {loading && <Loader />}
+      {loading || (searchLoading && <Loader />)}
       <section className={styles.home}>
-        {data.map((character) => (
-          <CharacterCard characterData={character} key={character.id} />
-        ))}
+        {searchedData.length === 0
+          ? data.map((character) => (
+              <CharacterCard characterData={character} key={character.id} />
+            ))
+          : searchedData.map((character) => (
+              <CharacterCard characterData={character} key={character.id} />
+            ))}
       </section>
       {scrollLoadind && <Loader />}
       {endDataPage && <h2>Fim dos resultados</h2>}

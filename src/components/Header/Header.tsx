@@ -4,14 +4,18 @@ import { SearchBar } from "../SearchBar";
 
 import styles from "./Header.module.scss";
 
-export const Header = () => {
+import { SearchBarProps } from "../SearchBar/SearchBar";
+
+type HeaderProps = Pick<SearchBarProps, "handleSearcBarText">;
+
+export const Header = ({ handleSearcBarText }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerStart}>
         <Title />
         <Favorites />
       </div>
-      <SearchBar />
+      <SearchBar handleSearcBarText={handleSearcBarText} />
     </header>
   );
 };

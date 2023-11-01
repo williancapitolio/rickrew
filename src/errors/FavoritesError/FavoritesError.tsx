@@ -12,7 +12,7 @@ export const FavoritesError = () => {
         <Subtitle text="Favoritos" />
 
         <section className={styles.favoritesErrorContentList}>
-          <h3>Nenhum personagem favorito!</h3>
+          <p>Nenhum personagem favorito!</p>
         </section>
       </section>
     </section>

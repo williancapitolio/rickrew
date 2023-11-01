@@ -36,6 +36,8 @@ export const getFavoritesCharacters = async (): Promise<CharacterType[]> => {
 
   const response = await fetch(baseURL + favoritesCharacters);
 
+  if (!response.ok) throw new Error("Algo deu errado na requisição!");
+
   const data: CharacterType[] = await response.json();
 
   return data;

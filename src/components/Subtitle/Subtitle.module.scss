@@ -1,5 +1,12 @@
-.subtitle{
+@import "../../styles/variables.scss";
+
+.subtitle {
   width: 100%;
   max-width: 64rem;
   padding: 1.5rem 1rem 1rem 1rem;
+
+  &::first-letter {
+    font-size: 1.5rem;
+    color: $primaryGreen;
+  }
 }

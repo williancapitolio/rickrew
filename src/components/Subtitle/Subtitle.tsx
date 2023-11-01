@@ -5,5 +5,5 @@ type SubtitleProps = {
 };
 
 export const Subtitle = ({ text }: SubtitleProps) => {
-  return <h3 className={styles.subtitle}>{text}</h3>;
+  return <h2 className={styles.subtitle}>{text}</h2>;
 };

@@ -1,4 +1,5 @@
 import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
+import { useFilterCharactersByName } from "../../hooks/useFilterCharactersByName";
 
 import { Header } from "../../components/Header";
 import { Subtitle } from "../../components/Subtitle";
@@ -6,15 +7,12 @@ import { Loader } from "../../components/Loader";
 import { CharacterCard } from "../../components/CharacterCard";
 
 import styles from "./Home.module.scss";
-import { useFilterCharactersByName } from "../../hooks/useFilterCharactersByName";
 
 export const Home = () => {
   const { loading, data, scrollLoadind, endDataPage } = useInfiniteScroll();
 
   const { searchLoading, searchedData, handleSearcBarText } =
     useFilterCharactersByName();
-
-    console.log(searchedData)
 
   return (
     <>

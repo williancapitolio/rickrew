@@ -49,25 +49,27 @@ export const Character = () => {
       <section className={styles.characterBody}>
         <section className={styles.characterBodyAbout}>
           <h4>Sobre</h4>
-          <p>
-            Status: <span>{loadedData.status}</span>
-          </p>
-          <p>
-            Espécie: <span>{loadedData.species}</span>
-          </p>
-          <p>
-            Gênero: <span>{loadedData.gender}</span>
-          </p>
+          {[
+            ["Status:", loadedData.status],
+            ["Espécie:", loadedData.species],
+            ["Gênero:", loadedData.gender],
+          ].map((item) => (
+            <p>
+              {item[0]} <span>{item[1]}</span>
+            </p>
+          ))}
         </section>
 
         <section className={styles.characterBodyAbout}>
           <h4>Lugares</h4>
-          <p>
-            Origem: <span>{loadedData.origin.name}</span>
-          </p>
-          <p>
-            Localização: <span>{loadedData.location.name}</span>
-          </p>
+          {[
+            ["Origem:", loadedData.origin.name],
+            ["Localização:", loadedData.location.name],
+          ].map((item) => (
+            <p>
+              {item[0]} <span>{item[1]}</span>
+            </p>
+          ))}
         </section>
       </section>
     </article>

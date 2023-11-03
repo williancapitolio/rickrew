@@ -14,7 +14,7 @@ export const SearchBar = ({ handleSearcBarText }: SearchBarProps) => {
       onChange={handleSearcBarText}
       className={styles.searchBar}
       type="text"
-      placeholder="Pesquise por um personagem"
+      placeholder="Pesquisar personagem"
     />
   );
 };

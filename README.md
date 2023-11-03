@@ -71,6 +71,6 @@ $ npm run dev
   </tr>
 </table>
 
-## :dart: Status do projeto
+## :dart: Project status
 
 Complete :interrobang:

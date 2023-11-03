@@ -8,11 +8,11 @@ Get an encyclopedia with all the characters from the cartoon "Rick and Morty" re
 
 ## :books: Functionalities
 
-- <b>1</b>: Infinite character scrolling;
-- <b>2</b>: Filter character by name;
-- <b>3</b>: Single character details page;
-- <b>4</b>: Favorite a character;
-- <b>5</b>: Get a list of favorites characters.
+- <b>1</b> Infinite scroll characters;
+- <b>2</b> Filter character by name;
+- <b>3</b> Single character details page;
+- <b>4</b> Favorite a character;
+- <b>5</b> Get a list of favorites characters.
 
 ## :wrench: Technologies used
 
@@ -24,7 +24,7 @@ Get an encyclopedia with all the characters from the cartoon "Rick and Morty" re
 - React Icons;
 - HTML;
 - SASS;
-- CSS Modules;
+- CSS Modules.
 
 ## :joystick: To start
 

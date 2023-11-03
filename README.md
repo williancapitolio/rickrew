@@ -1,6 +1,6 @@
 <h1 align="center">:file_cabinet: RicKrew</h1>
 
-![App Screenshot](https://github.com/williancapitolio/rickrew/blob/main/src/public/screenshot/rickrew.jpeg)
+![App Screenshot](https://github.com/williancapitolio/rickrew/blob/main/public/screenshot/rickrew.jpeg)
 
 ## :memo: Description
 

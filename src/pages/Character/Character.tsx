@@ -50,12 +50,12 @@ export const Character = () => {
         <section className={styles.characterBodyAbout}>
           <h4>Sobre</h4>
           {[
-            ["Status:", loadedData.status],
-            ["Espécie:", loadedData.species],
-            ["Gênero:", loadedData.gender],
+            ["Status", loadedData.status],
+            ["Espécie", loadedData.species],
+            ["Gênero", loadedData.gender],
           ].map((item) => (
-            <p>
-              {item[0]} <span>{item[1]}</span>
+            <p key={item[0] + loadedData.id}>
+              {item[0]}: <span>{item[1]}</span>
             </p>
           ))}
         </section>
@@ -63,11 +63,11 @@ export const Character = () => {
         <section className={styles.characterBodyAbout}>
           <h4>Lugares</h4>
           {[
-            ["Origem:", loadedData.origin.name],
-            ["Localização:", loadedData.location.name],
+            ["Origem", loadedData.origin.name],
+            ["Localização", loadedData.location.name],
           ].map((item) => (
-            <p>
-              {item[0]} <span>{item[1]}</span>
+            <p key={item[0] + loadedData.id}>
+              {item[0]}: <span>{item[1]}</span>
             </p>
           ))}
         </section>

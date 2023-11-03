@@ -6,16 +6,11 @@ import { CharacterType } from "../types/CharactersType";
 
 export const useFilterCharactersByName = () => {
   const [searchText, setSearchText] = useState("");
-  const [searchLoading, setSearchLoading] = useState(false);
   const [searchedData, setSearchedData] = useState<CharacterType[]>([]);
 
   const handleSearcBarText = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchLoading(true);
-    setTimeout(() => {
-      const targetValue = ev.target.value;
-      setSearchText(targetValue);
-      setSearchLoading(false);
-    }, 1000 * 3);
+    const targetValue = ev.target.value;
+    setSearchText(targetValue);
   };
 
   useEffect(() => {
@@ -27,5 +22,5 @@ export const useFilterCharactersByName = () => {
     if (searchText) handleSearchResult();
   }, [searchText]);
 
-  return { searchLoading, searchedData, handleSearcBarText };
+  return { searchedData, handleSearcBarText, searchText };
 };

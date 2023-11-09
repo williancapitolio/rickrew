@@ -35,6 +35,10 @@ export const router = createBrowserRouter([
         loader: favoritesLoader,
         errorElement: <FavoritesError />,
       },
+      {
+        path: "*",
+        element: <DefaultError />,
+      },
     ],
   },
 ]);

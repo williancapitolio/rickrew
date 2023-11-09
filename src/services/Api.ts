@@ -21,6 +21,8 @@ export const getSingleCharacter = async (
 ): Promise<CharacterType> => {
   const response = await fetch(BASE_URL + id);
 
+  if (response.status === 404) throw new Error("Personagem não encontrado!");
+
   if (!response.ok) throw new Error("Algo deu errado na requisição!");
 
   const data: CharacterType = await response.json();

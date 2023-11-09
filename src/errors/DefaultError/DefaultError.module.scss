@@ -1,0 +1,57 @@
+@import "../../styles/variables.scss";
+
+.default {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &Logo {
+    width: 100%;
+    max-width: 64rem;
+    padding-top: 0.75rem;
+    padding-left: 1rem;
+    display: flex;
+    align-items: start;
+  }
+
+  &Error {
+    width: 100%;
+    max-width: 64rem;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 1rem;
+
+    &Status {
+      font-size: 6rem;
+
+      &::first-letter {
+        color: $primaryGreen;
+      }
+    }
+
+    &Text {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    a button {
+      background-color: $primaryGreen;
+      border: 0.15rem solid transparent;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      font-weight: 600;
+
+      &:hover {
+        color: $primaryGreen;
+        background-color: $bgDark;
+        border: 0.15rem solid $primaryGreen;
+      }
+    }
+  }
+}

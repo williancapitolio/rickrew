@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import { Layout } from "../pages/Layout";
+import { DefaultError } from "../errors/DefaultError";
 
 import { Home } from "../pages/Home";
 import { charactersLoader } from "../loaders/charactersLoader";
@@ -16,8 +17,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    /* loader: , */
-    /* errorElement: ,*/
+    errorElement: <DefaultError />,
     children: [
       {
         index: true,
